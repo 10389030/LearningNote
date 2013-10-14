@@ -32,6 +32,9 @@ int main()
  * @comment
  *	System will alloc the min-avalidable FD when you require for a new one.
  *	By default, STDIN(0), STDOUT(1), STDERR(2)
+ * @note
+ * 	FD -> FILE*:	fdopen()
+ * 	FILE* -> FD:	fileno()
  */
 
 ```
