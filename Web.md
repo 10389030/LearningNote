@@ -1,12 +1,12 @@
-Lesson 1:
-    *域名与IP的转换
++ Lesson 1:
+    * 域名与IP的转换
         + DNS与ISP
         + DNS record cache和IP改变 网站重定向
         + DNS record 类型和google Apps外包服务
 	* 虚拟主机服务和共享主机服务下的安全和效率问题
     * 网站开发中的多浏览器兼容问题
 
-Lesson 2
++ Lesson 2
     * http header 信息（使用firebug查看）
 	* Host一行：当同一台服务器（即同一个IP）对应多个网站（即域名）用于区分是将服务请求交给这个服务器上的那个站点。
 	* 文件权限 访问者的身份设置与网站的权益。
@@ -30,7 +30,7 @@ Lesson 2
 			```
         + 不要让用户知道您自身存在的不安全隐患i。
 
-+lesson 3
++ lesson 3
     * 目录管理与网站安全( /etc /html /include )
     * xml能够通过DTD对文档内容进行校验
     * 对于少量的数据 可以使用xml文档来代替数据库的功能。
@@ -41,16 +41,17 @@ Lesson 2
     * 判断一个用户是否已近登录了 使用 if( $SESSION["authenticated" ){...} [需要先调用 start_session() 函数]
     * php constant defination formate 'define( "constant_name" "constant_value" )'
     * 对值进行访问之前首相调用isset判断相应的变量是否已经有效。
-	*0 使用php进行重定向：
-        $host = $_SERVER["HTTP_HOST"];
+	* 使用php进行重定向：
+        ```php
+	$host = $_SERVER["HTTP_HOST"];
         $path = rtrim( dirname( $_SERVER["PHP_SELF"] ) "/\\");
         header("Location: http://$host$path/home.php");
         exit;
+	```
 	*1 使用count( $_POST )是否为0来判断是否是用户出错了。
-	*2 在处理用户输入的时候 注意可能存在服务器端错误地对用户的输入进行解释 导致了服务器执行了用户输入的代码 或者是可能用户的输入导致了网页代码结构被破坏 更有甚者是用户进行SQL注入对网站进行攻击。
-    解决方法：调用php函数: htmlspecialchars()来处理用户的输入;
+	*2 在处理用户输入的时候 注意可能存在服务器端错误地对用户的输入进行解释 导致了服务器执行了用户输入的代码 或者是可能用户的输入导致了网页代码结构被破坏 更有甚者是用户进行SQL注入对网站进行攻击。解决方法：调用php函数: htmlspecialchars()来处理用户的输入;
 
-+lesson 4
++ lesson 4
     * 拓展库：ExtJS JQuery YUI Mootools
     * 强制XML解释器不解释某段文本 而仅仅是当作是普通的字符来进行处理 这对于javascript开发以及在xml方便 '<' '?' '>' 等字符的使用非常有效
         语法: <![CDATA[ ... ]]>
@@ -66,7 +67,7 @@ Lesson 2
             child[ "attribute_name" ];
 			```
 
-+lesson 5
++ lesson 5
     * php中require和include的区别：
         require_once / require:文件必须存在 否则会直接出错这往往是我们希望的(推荐使用）
         include_once / include:文件不存在是会忽略include请求 而不会终止php继续执行。
@@ -89,7 +90,7 @@ Lesson 2
         mysql_num_rows( $mysql_result );
         mysql_fetch_asso( $mysql_result );    // 将sql查询得到的结果转化为数组
 		```
-+lesson 6
++ lesson 6
     * PASSWORD()对用户密码进行简单的加密（采用的是文本的加密方式 得到的是varchar）
 	* AES_ENCRYPT()非常安全的加密方法（采用的是二进制的加密方式 加密后得到的是varbinary类型的数据）
         注意：@1 需要特别注意的是二进制数据在转移时比较容易出现问题 需要特别注意数据的类型。
@@ -99,7 +100,7 @@ Lesson 2
 	* database: inner join cross join left outer join right outer join
     * 处理金融数据时因该注意数据的精度 舍入问题 以及race condiction(transaction)
 
-+lesson 7
++ lesson 7
     * session劫持
 	* javascript执行与浏览器对DOM对象构建的顺序决定javacript代码放置的位置
     * javascript的UI库
@@ -107,7 +108,7 @@ Lesson 2
 	* javascript中使用css样式（驼峰式转换）
 	* javascript压缩。
 
-+lesson 8
++ lesson 8
     * Ajax对象在不同浏览器之间的支持问题：
         IE使用的是ActiveX 其它浏览器采用 XMLHttpRequest
 	* 根据同源策略 Ajax只能访问当前页面站点的数据
@@ -116,13 +117,13 @@ Lesson 2
 	*  header:Content-type: ....
     * google map javascript API
 
-+lesson 9
++ lesson 9
     * suPHP
     * 针对于当前很多网站都是采用https作为登录和注册 但是其它的都是http 那么用户上次登录通过https获得的session cookie如果没有被标记为secure（通过服务器端设置） 那么用户下次登录时就可能由浏览器明文发送session cookie 从而使用户处在不安全的环境中。
 	* 防御式开发：不相信任何用户输入 时刻不忘记转义用户的输入和给用户的输出。
     * 伪造请求（GET方法）
     
-+lesson 10
++ lesson 10
     * memcached服务器 用来缓存php解释后的html 这样避免了每次访问都需要重新解释php文件。
 	* RAID磁盘冗余矩阵
 	* 对于服务器的可规模化 可以从硬件反面和软件方面下手 硬件方面通过购买高性能的硬件解决 而软件反面则是通过将问题进行分解 然后协调多个性能并不是很优越的机器高效解决问题。（HAPOOD）
