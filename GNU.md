@@ -38,3 +38,22 @@ int main()
  */
 
 ```
+
+----
+
+```c++
+#include <stdio.h>
+#include <stdlib.h>
+
+void exit_func()
+{
+	printf("process is exiting!\n");
+}
+
+int main(int argc, char* argv[])
+{
+	atexit( exit_func );	
+
+	return 0;
+}
+```
