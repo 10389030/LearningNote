@@ -1,6 +1,6 @@
 Python Note
 ===========
-+ anotation
+anotation
 ---------
 ```python
 
@@ -62,3 +62,5 @@ def fun(arg):
 fun(1)
 
 ```
+-----------
+
